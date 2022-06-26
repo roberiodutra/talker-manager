@@ -30,4 +30,7 @@ const getTalkerById = async (req, res) => {
   }
 };
 
-module.exports = { getAllTalkers };
+module.exports = {
+  getAllTalkers,
+  getTalkerById
+};

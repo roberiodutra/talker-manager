@@ -36,9 +36,12 @@ const getTalkerById = async (req, res) => {
 const userLogin = (req, res) => {
   try {
     const { email, password } = req.body;
-    email;
-    password;
-    return res.status(httpStatus.OK).json({ token: randToken(16) });
+    const invalidLogin = talkersService.validateLogin(email, password);
+
+    invalidLogin
+    ? res.status(httpStatus.BAD_REQUEST).json(invalidLogin)
+    : res.status(httpStatus.OK).json({ token: randToken(16) });
+
   } catch (err) {
     console.error(err);
     res.status(httpStatus.INTERNAL_SERVER).json(INTERNAL_ERROR_MESSAGE);

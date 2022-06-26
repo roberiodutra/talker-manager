@@ -1,8 +1,11 @@
 const talkersService = require('../services/talkersService');
 const httpStatus = require('../helpers/httpStatusCodes');
+const str = require('@supercharge/strings');
 
 const TALKERS_FILE = './talker.json';
 const INTERNAL_ERROR_MESSAGE = { message: 'Error when trying to perform operation' };
+
+const randToken = (nbr) => str.random(nbr);
 
 const getAllTalkers = async (_req, res) => {
   try {
@@ -30,7 +33,20 @@ const getTalkerById = async (req, res) => {
   }
 };
 
+const userLogin = (req, res) => {
+  try {
+    const { email, password } = req.body;
+    email;
+    password;
+    return res.status(httpStatus.OK).json({ token: randToken(16) });
+  } catch (err) {
+    console.error(err);
+    res.status(httpStatus.INTERNAL_SERVER).json(INTERNAL_ERROR_MESSAGE);
+  }
+};
+
 module.exports = {
   getAllTalkers,
-  getTalkerById
+  getTalkerById,
+  userLogin
 };

@@ -7,7 +7,7 @@ const getAllTalkers = async (_req, res) => {
   try {
     const talkersList = await talkersService.getAllTalkers(TALKERS_FILE);
     !talkersList
-    ? res.status(httpStatus.OK).json({ message: '404 Nothing Found' })
+    ? res.status(httpStatus.NOT_FOUND).json({ message: '404 Nothing Found' })
     : res.status(httpStatus.OK).json(talkersList);
   } catch (err) {
     console.error(err);

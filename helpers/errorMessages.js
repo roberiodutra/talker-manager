@@ -16,7 +16,7 @@ const errorMessages = {
   DATE_REQUIRED: 'O campo "watchedAt" é obrigatório',
   INVALID_DATE: 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"',
   RATE_REQUIRED: 'O campo "rate" é obrigatório',
-  INVALID_RATE: 'O campo "rate" deve ser um inteiro de 1 à 5'
+  INVALID_RATE: 'O campo "rate" deve ser um inteiro de 1 à 5',
 };
 
 module.exports = errorMessages;

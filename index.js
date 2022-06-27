@@ -1,15 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = require('./routers');
 const rescue = require('express-rescue');
-const helmet = require("helmet");
-const morgan = require("morgan");
+const helmet = require('helmet');
+const morgan = require('morgan');
+const router = require('./routers');
 const httpStatus = require('./helpers/httpStatusCodes');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(helmet());
-app.use(morgan("common"));
+app.use(morgan('common'));
 
 const PORT = '3000';
 

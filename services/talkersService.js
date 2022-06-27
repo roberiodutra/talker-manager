@@ -24,9 +24,9 @@ const validateLogin = (email, password) => {
   default:
     return false;
   }
-}
+};
 
 module.exports = {
   getAllTalkers,
-  validateLogin
+  validateLogin,
 };

@@ -5,4 +5,8 @@ const getAllTalkers = async (filePath) => {
   return talkersList;
 };
 
-module.exports = { getAllTalkers };
+const addTalker = async (filePath, newList) => {
+  await fs.writeFile(filePath, JSON.stringify(newList));
+};
+
+module.exports = { getAllTalkers, addTalker };

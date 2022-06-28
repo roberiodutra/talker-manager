@@ -4,13 +4,13 @@ const nameValidation = (req, res, next) => {
   const { name } = req.body;
   switch (true) {
   case !name:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.NAME_REQUIRED,
-    }));
+    });
   case name.length < 3:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.INVALID_NAME,
-    }));
+    });
   default:
     next();
   }
@@ -20,13 +20,13 @@ const ageValidation = (req, res, next) => {
   const { age } = req.body;
   switch (true) {
   case !age:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.AGE_REQUIRED,
-    }));
+    });
   case age < 18:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.INVALID_AGE,
-    }));
+    });
   default:
     next();
   }
@@ -47,13 +47,13 @@ const watchedAtValidation = (req, res, next) => {
   const DATE_MATCH_REGEX = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
   switch (true) {
   case !watchedAt:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.DATE_REQUIRED,
-    }));
+    });
   case !watchedAt.match(DATE_MATCH_REGEX):
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.INVALID_DATE,
-    }));
+    });
   default:
     next();
   }
@@ -63,13 +63,13 @@ const rateValidation = (req, res, next) => {
   const { talk: { rate } } = req.body;
   switch (true) {
   case rate === undefined:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.RATE_REQUIRED,
-    }));
+    });
   case !Number.isInteger(rate) || rate < 1 || rate > 5:
-    next(res.status(httpStatus.BAD_REQUEST).json({
+    return res.status(httpStatus.BAD_REQUEST).json({
       message: errorMessages.INVALID_RATE,
-    }));
+    });
   default:
     next();
   }

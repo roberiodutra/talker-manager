@@ -34,6 +34,7 @@ const query = async (filePath, req) => {
   const { q } = req.query;
   const talkersList = await talkersModel.getAllTalkers(filePath);
   const searchTalkers = talkersList.filter((tk) => tk.name.includes(q));
+
   return searchTalkers;
 };
 

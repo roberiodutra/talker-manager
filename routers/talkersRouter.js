@@ -14,5 +14,6 @@ router.get('/talker/:id', talkersController.getTalkerById);
 router.post('/login', talkersController.userLogin);
 router.post('/talker', tokenAuth, bodyValidation, addTalkerController.addTalker);
 router.put('/talker/:id', tokenAuth, bodyValidation, editTalkerController.editTalker);
+router.delete('/talker/:id', tokenAuth);
 
 module.exports = router;

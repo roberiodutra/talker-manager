@@ -2,7 +2,7 @@ const express = require('express');
 const {
   talkersController,
   addTalkerController,
-  editTalkerController
+  editTalkerController,
 } = require('../controllers');
 const bodyValidation = require('../middlewares/bodyValidation');
 const tokenAuth = require('../middlewares/tokenAuth');

@@ -1,5 +1,4 @@
 const talkersController = require('./talkersController');
-const addTalkerController = require('./addTalkerController');
-const editTalkerController = require('./editTalkerController');
+const crudController = require('./crudController');
 
-module.exports = { talkersController, addTalkerController, editTalkerController };
+module.exports = { talkersController, crudController };

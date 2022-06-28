@@ -1,6 +1,15 @@
 const talkersModel = require('../models/talkersModel');
 
-const editTalker = async (filePath, req) => {
+const add = async (filePath, name, age, talk) => {
+  const oldTalkersList = await talkersModel.getAllTalkers(filePath);
+  const newTalker = { id: oldTalkersList.length + 1, name, age, talk };
+  oldTalkersList.push(newTalker);
+  await talkersModel.addTalker(filePath, oldTalkersList);
+
+  return newTalker;
+};
+
+const edit = async (filePath, req) => {
   const { name, age, talk } = req.body;
   const { id } = req.params;
   const talkersList = await talkersModel.getAllTalkers(filePath);
@@ -12,6 +21,4 @@ const editTalker = async (filePath, req) => {
   return editedTalker;
 };
 
-module.exports = {
-  editTalker,
-};
+module.exports = { add, edit };

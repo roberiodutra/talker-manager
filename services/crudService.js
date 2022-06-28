@@ -2,10 +2,10 @@ const talkersModel = require('../models/talkersModel');
 
 const add = async (filePath, req) => {
   const { name, age, talk } = req.body;
-  const oldTalkersList = await talkersModel.getAllTalkers(filePath);
-  const newTalker = { id: oldTalkersList.length + 1, name, age, talk };
-  oldTalkersList.push(newTalker);
-  await talkersModel.addTalker(filePath, oldTalkersList);
+  const talkersList = await talkersModel.getAllTalkers(filePath);
+  const newTalker = { id: talkersList.length + 1, name, age, talk };
+  talkersList.push(newTalker);
+  await talkersModel.addTalker(filePath, talkersList);
 
   return newTalker;
 };
@@ -22,4 +22,12 @@ const edit = async (filePath, req) => {
   return editedTalker;
 };
 
-module.exports = { add, edit };
+const remove = async (filePath, req) => {
+  const { id } = req.params;
+  const talkersList = await talkersModel.getAllTalkers(filePath);
+  const findIndexById = talkersList.findIndex((tk) => tk.id === +id);
+  talkersList.splice(findIndexById, 1);
+  await talkersModel.addTalker(filePath, talkersList);
+};
+
+module.exports = { add, edit, remove };

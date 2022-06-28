@@ -9,5 +9,6 @@ router.get('/talker', talkersController.getAllTalkers);
 router.get('/talker/:id', talkersController.getTalkerById);
 router.post('/login', talkersController.userLogin);
 router.post('/talker', tokenAuth, bodyValidation, addTalkerController.addTalker);
+router.put('/talker/:id', tokenAuth, bodyValidation);
 
 module.exports = router;

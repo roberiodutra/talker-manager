@@ -11,7 +11,7 @@ const addTalker = async (req, res) => {
     return res.status(httpStatus.CREATED).json(newTalker);
   } catch (err) {
     console.error(err);
-    res.status(httpStatus.INTERNAL_SERVER).json({ message: errorMessages.INTERNAL_ERROR });
+    res.status(httpStatus.INTERNAL_SERVER).json(errorMessages.INTERNAL_ERROR);
   }
 };
 

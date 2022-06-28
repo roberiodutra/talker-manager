@@ -7,13 +7,9 @@ const tokenAuth = (req, res, next) => {
 
   switch (true) {
   case !authorization:
-    return res.status(httpStatus.UNAUTHORIZED).json({
-      message: errorMessages.TOKEN_NOT_FOUND,
-    });
+    return res.status(httpStatus.UNAUTHORIZED).json(errorMessages.TOKEN_NOT_FOUND);
   case authorization.length !== TOKEN_LENGTH:
-    return res.status(httpStatus.UNAUTHORIZED).json({
-      message: errorMessages.INVALID_TOKEN,
-    });
+    return res.status(httpStatus.UNAUTHORIZED).json(errorMessages.INVALID_TOKEN);
   default:
     next();
   }

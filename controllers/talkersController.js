@@ -10,12 +10,12 @@ const getAllTalkers = async (_req, res) => {
   try {
     const talkersList = await talkersService.getAllTalkers(TALKERS_FILE);
     if (!talkersList) {
-      return res.status(httpStatus.NOT_FOUND).json({ message: errorMessages.NOT_FOUND });
+      return res.status(httpStatus.NOT_FOUND).json(errorMessages.NOT_FOUND);
     }
     return res.status(httpStatus.OK).json(talkersList);
   } catch (err) {
     console.error(err);
-    res.status(httpStatus.INTERNAL_SERVER).json({ message: errorMessages.INTERNAL_ERROR });
+    res.status(httpStatus.INTERNAL_SERVER).json(errorMessages.INTERNAL_ERROR);
   }
 };
 
@@ -25,12 +25,12 @@ const getTalkerById = async (req, res) => {
     const talkersList = await talkersService.getAllTalkers(TALKERS_FILE);
     const talkerFound = talkersList.find((tk) => tk.id === +id);
     if (!talkerFound) {
-      return res.status(httpStatus.NOT_FOUND).json({ message: errorMessages.TALKER_NOT_FOUND });
+      return res.status(httpStatus.NOT_FOUND).json(errorMessages.TALKER_NOT_FOUND);
     }
     return res.status(httpStatus.OK).json(talkerFound);
   } catch (err) {
     console.error(err);
-    res.status(httpStatus.INTERNAL_SERVER).json({ message: errorMessages.INTERNAL_ERROR });
+    res.status(httpStatus.INTERNAL_SERVER).json(errorMessages.INTERNAL_ERROR);
   }
 };
 
@@ -39,12 +39,12 @@ const userLogin = (req, res) => {
     const { email, password } = req.body;
     const invalidLogin = talkersService.validateLogin(email, password);
     if (invalidLogin) {
-      return res.status(httpStatus.BAD_REQUEST).json({ message: invalidLogin });
+      return res.status(httpStatus.BAD_REQUEST).json(invalidLogin);
     }
     return res.status(httpStatus.OK).json({ token: randToken(16) });
   } catch (err) {
     console.error(err);
-    res.status(httpStatus.INTERNAL_SERVER).json({ message: errorMessages.INTERNAL_ERROR });
+    res.status(httpStatus.INTERNAL_SERVER).json(errorMessages.INTERNAL_ERROR);
   }
 };
 

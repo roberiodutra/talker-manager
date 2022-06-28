@@ -1,4 +1,5 @@
 const { httpStatus, errorMessages } = require('../helpers');
+
 const TOKEN_LENGTH = 16;
 
 const tokenAuth = (req, res, next) => {
@@ -14,9 +15,8 @@ const tokenAuth = (req, res, next) => {
       message: errorMessages.INVALID_TOKEN,
     });
   default:
-    break;
+    next();
   }
-  next();
 };
 
 module.exports = tokenAuth;

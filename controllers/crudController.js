@@ -33,4 +33,6 @@ const remove = async (req, res) => {
   }
 };
 
+const query = async (req, res) {};
+
 module.exports = { add, edit, remove };

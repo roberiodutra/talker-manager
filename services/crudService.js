@@ -30,4 +30,11 @@ const remove = async (filePath, req) => {
   await talkersModel.addTalker(filePath, talkersList);
 };
 
-module.exports = { add, edit, remove };
+const query = async (filePath, req) => {
+  const { q } = req.query;
+  const talkersList = await talkersModel.getAllTalkers(filePath);
+  const searchTalkers = talkersList.filter((tk) => tk.name.includes(q));
+  return searchTalkers;
+};
+
+module.exports = { add, edit, remove, query };

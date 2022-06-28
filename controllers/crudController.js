@@ -43,4 +43,4 @@ const query = async (req, res) => {
   }
 };
 
-module.exports = { add, edit, remove };
+module.exports = { add, edit, remove, query };

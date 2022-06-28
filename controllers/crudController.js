@@ -33,6 +33,14 @@ const remove = async (req, res) => {
   }
 };
 
-const query = async (req, res) {};
+const query = async (req, res) => {
+  try {
+    const foundTalkers = await crudService.query(TALKERS_FILE, req);
+    return res.status(httpStatus.OK).jscon(foundTalkers);
+  } catch (err) {
+    console.error(err);
+    res.status(httpStatus.INTERNAL_SERVER).json(errorMessages.INTERNAL_ERROR);
+  }
+};
 
 module.exports = { add, edit, remove };

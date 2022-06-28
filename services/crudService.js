@@ -1,6 +1,7 @@
 const talkersModel = require('../models/talkersModel');
 
-const add = async (filePath, name, age, talk) => {
+const add = async (filePath, req) => {
+  const { name, age, talk } = req.body;
   const oldTalkersList = await talkersModel.getAllTalkers(filePath);
   const newTalker = { id: oldTalkersList.length + 1, name, age, talk };
   oldTalkersList.push(newTalker);

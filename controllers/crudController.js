@@ -5,8 +5,7 @@ const TALKERS_FILE = './talker.json';
 
 const add = async (req, res) => {
   try {
-    const { name, age, talk } = req.body;
-    const newTalker = await crudService.add(TALKERS_FILE, name, age, talk);
+    const newTalker = await crudService.add(TALKERS_FILE, req);
 
     return res.status(httpStatus.CREATED).json(newTalker);
   } catch (err) {

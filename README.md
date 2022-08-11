@@ -1,4 +1,4 @@
-### Projeto proposto pelo curso web full-stack da Trybe.
+### Projeto proposto pelo curso web full-stack da Trybe. 100% completed ✔️
 
 #### O que deverá ser desenvolvido
 ###### Você vai desenvolver sua primeira API utilizando a arquitetura MSC (model-service-controller)!

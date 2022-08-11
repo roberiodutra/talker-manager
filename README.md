@@ -1,6 +1,7 @@
 ### Projeto proposto pelo curso web full-stack da Trybe. 100% completed ✔️
 
 #### O que deverá ser desenvolvido
-###### Você vai desenvolver sua primeira API utilizando a arquitetura MSC (model-service-controller)!
+###### Você irá construir uma aplicação de cadastro de talkers (palestrantes) em que será possível cadastrar, visualizar, pesquisar, editar e excluir informações. Para isso você deverá:
 
-###### A API a ser construída é um sistema de gerenciamento de vendas no formato dropshipping em que será possível criar, visualizar, deletar e atualizar produtos e vendas. Você deverá utilizar o banco de dados MySQL para a gestão de dados. Além disso, a API deve ser RESTful.
+###### Desenvolver uma API de um CRUD (Create, Read, Update e Delete) de palestrantes (talkers) e;
+###### Desenvolver alguns endpoints que irão ler e escrever em um arquivo utilizando o módulo fs.
